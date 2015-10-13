@@ -308,6 +308,8 @@ let mapleader = " "
 nnoremap <silent>  ;re  :source ~/.vimrc<CR><Esc>
 " edit .vimrc
 nnoremap <silent>  ;v  :edit $MYVIMRC<CR><Esc>
+" toggle display of line numbers
+nnoremap <silent>  ;n  :set nu!<CR>
 " change tab space
 nnoremap t2 :set ts=2 sts=2 sw=2 et<CR><Esc>
 nnoremap t4 :set ts=4 sts=4 sw=4 et<CR><Esc>
@@ -329,7 +331,5 @@ nnoremap <silent>  ;di  :call DateInsert()<CR>
 nnoremap <silent>  ;gl  :call GetLine()<CR>
 nnoremap <silent>  ;ff  :call FileType()<CR>
 nnoremap <silent>  ;he  :call HighLightErr()<CR>
-nnoremap <silent>  ;n  :set nu<CR>
-nnoremap <silent>  ;sn  :set nonu<CR>
 "}}}KeyMap
 
