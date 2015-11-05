@@ -16,6 +16,7 @@ set ignorecase
 set noerrorbells
 set spell
 set spelllang=en,cjk
+set pastetoggle=<C-a>
 
 highlight SpecialKey ctermfg=237
 set t_Co=256
@@ -39,10 +40,9 @@ set colorcolumn=80
 endif
 "}}}Basic
 "{{{Plguin
-" ======================
-"        Plugin
-" ======================
 call plug#begin('~/.vim/plugged')
+"Plug 'mattn/benchvimrc-vim'
+
 " -------
 "  Color
 " -------
@@ -86,6 +86,11 @@ Plug 'rust-lang/rust.vim'
 "  Manual
 " --------
 Plug 'thinca/vim-ref'
+
+" ----------
+"  MyPlugin
+" ----------
+Plug 'delaemon/dec2bin.vim'
 call plug#end()
 :runtime! ftplugin/man.vim
 
@@ -107,7 +112,6 @@ map <silent> sP :call YanktmpPaste_P()<CR>
 " vim-expand-region
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
-
 
 " --------
 "  Search
@@ -180,22 +184,36 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 set completeopt=menu,preview
-autocmd FileType go nnoremap <leader>i <Plug>(go-info)
-autocmd FileType go nnoremap <leader>gd <Plug>(go-doc)
-autocmd FileType go nnoremap <leader>gv <Plug>(go-doc-vertical)
-autocmd FileType go nnoremap <leader>gb <Plug>(go-doc-browser)
-autocmd FileType go nnoremap <leader>r <Plug>(go-run)
-autocmd FileType go nnoremap <leader>b <Plug>(go-build)
-autocmd FileType go nnoremap <leader>t <Plug>(go-test)
-autocmd FileType go nnoremap <leader>c <Plug>(go-coverage)
-autocmd FileType go nnoremap <leader>ds <Plug>(go-def-split)
-autocmd FileType go nnoremap <leader>dv <Plug>(go-def-vertical)
-autocmd FileType go nnoremap <leader>dt <Plug>(go-def-tab)
-autocmd FileType go nnoremap <leader>s <Plug>(go-implements)
-autocmd FileType go nnoremap <leader>e <Plug>(go-rename)
-autocmd FileType go :highlight goErr cterm=bold ctermfg=214
-"failed
-autocmd FileType go :match goErr /\<err\>/
+if &filetype == "go"
+    nnoremap <leader>i <Plug>(go-info)
+    nnoremap <leader>gd <Plug>(go-doc)
+    nnoremap <leader>gv <Plug>(go-doc-vertical)
+    nnoremap <leader>gb <Plug>(go-doc-browser)
+    nnoremap <leader>r <Plug>(go-run)
+    nnoremap <leader>b <Plug>(go-build)
+    nnoremap <leader>t <Plug>(go-test)
+    nnoremap <leader>c <Plug>(go-coverage)
+    nnoremap <leader>ds <Plug>(go-def-split)
+    nnoremap <leader>dv <Plug>(go-def-vertical)
+    nnoremap <leader>dt <Plug>(go-def-tab)
+    nnoremap <leader>s <Plug>(go-implements)
+    nnoremap <leader>e <Plug>(go-rename)
+    "failed
+    :highlight goErr cterm=bold ctermfg=214
+    :match goErr /\<err\>/
+endif
+
+" -----------
+"  MyPlugin
+" -----------
+" dec2bin.vim
+nnoremap <silent> ;b    :call Dec2binPrint(<C-r><C-w>)<CR>
+nnoremap <silent> ;bp   :call Dec2binPrintPad(<C-r><C-w>)<CR>
+nnoremap <silent> ;bi   :call Dec2binReplace(<C-r><C-w>)<CR>
+nnoremap <silent> ;bip  :call Dec2binReplacePad(<C-r><C-w>)<CR>
+nnoremap <silent> ;d    :call Bin2decPrint("<C-r><C-w>")<CR>
+nnoremap <silent> ;di   :call Bin2decReplace("<C-r><C-w>")<CR>
+nnoremap <silent> ;t    :call Dec2binToggle("<C-r><C-w>")<CR>
 "}}}Plugin
 "{{{Method
 " ======================
@@ -247,6 +265,12 @@ endfunction
 function! CppRun()
     :w
     :!clear; g++ % -o %.compile && ./%.compile && rm %.compile;
+endfunction
+
+" Go Run
+function! GoRun()
+    :w
+    :!clear; go run %
 endfunction
 
 " Java Run
@@ -321,15 +345,15 @@ nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
 nnoremap <silent>  ;rr  :g/^/m 0<CR><Esc>
 
 " method call
-nnoremap <silent>  ;s  :call ToggleSyntax()<CR>
-nnoremap <silent>  ;=  :call AlignAssignments()<CR>
-nnoremap <silent>  ;c  :call CppRun()<CR>
-nnoremap <silent>  ;j  :call JavaRun()<CR>
-nnoremap <silent>  ;d  :call Date()<CR>
+nnoremap <silent>  ;s   :call ToggleSyntax()<CR>
+nnoremap <silent>  ;=   :call AlignAssignments()<CR>
+nnoremap <silent>  ;c   :call CppRun()<CR>
+nnoremap <silent>  ;j   :call JavaRun()<CR>
+nnoremap <silent>  ;g   :call GoRun()<CR>
 nnoremap <silent>  ;cf  :call CheckFunction()<CR>
-nnoremap <silent>  ;di  :call DateInsert()<CR>
+nnoremap <silent>  ;dt  :call Date()<CR>
+nnoremap <silent>  ;dti :call DateInsert()<CR>
 nnoremap <silent>  ;gl  :call GetLine()<CR>
 nnoremap <silent>  ;ff  :call FileType()<CR>
 nnoremap <silent>  ;he  :call HighLightErr()<CR>
 "}}}KeyMap
-
