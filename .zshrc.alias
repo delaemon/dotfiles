@@ -1,0 +1,58 @@
+alias v="/Users/dela/.vim/vim/src/vim"
+alias vim="/Users/dela/.vim/vim/src/vim"
+alias vr="/Users/dela/.vim/vim/src/vim -R"
+alias ll="ls -la"
+alias gs='git status'
+alias gl='git log'
+alias gb='git branch'
+alias gch='git checkout'
+alias gd='git diff'
+alias ga='git add'
+alias gc='git commit'
+alias gll='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --'
+alias glp='git log -p'
+alias gls='git log --stat'
+alias glns='git log --name-status'
+alias glo='git log --oneline'
+alias glg='git log --graph'
+alias glr='git log --reverse -n'
+alias gds='git diff --stat'
+alias gdds='git diff --dirstat'
+alias gdsub='git diff --submodule'
+alias gdi='git diff --ignore-space-at-eol'
+alias gdb='git diff -b'
+alias gdw='git diff --word-diff=color'
+alias cdd='/Users/dela/Documents/develop/'
+alias cdgo='/Users/dela/Documents/develop/golang/src/github.com/delaemon'
+alias start_nodeenv='cd /Users/dela/Documents/develop/node/; . env/bin/activate'
+alias cdc='/Users/dela/Documents/develop/Study/c++/'
+alias tailf='tail -f'
+
+#Tmux
+alias tmn='tmux new -s'
+alias tml='tmux ls'
+alias tma='tmux attach -t'
+alias tmlc='tmux lsc'
+alias tmk='tmux kill-session'
+alias tmkk='tmux kill-server'
+
+alias activate_node='source /Users/dela/Documents/develop/node/new/bin/activate'
+
+#Echo with color
+alias black='echo -e "\e[30m"'
+alias red='echo -e "\e[31m"'
+alias green='echo -e "\e[32m"'
+alias yellow='echo -e "\e[33m"'
+alias blue='echo -e "\e[34m"'
+alias purple='echo -e "\e[35m"'
+alias cyan='echo -e "\e[36m"'
+alias white='echo -e "\e[37m"'
+
+alias kuro='echo -e "\e[30m"'
+alias aka='echo -e "\e[31m"'
+alias midori='echo -e "\e[32m"'
+alias kiro='echo -e "\e[33m"'
+alias ao='echo -e "\e[34m"'
+alias murasaki='echo -e "\e[35m"'
+alias mizuiro='echo -e "\e[36m"'
+alias siro='echo -e "\e[37m"'
