@@ -176,7 +176,9 @@ fpath=(${HOME}/.zsh/functions/Completion ${fpath})
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 ## load user .zshrc configuration file
+# path and environment variable is described in the .zshrc.path
 [ -f ~/.zshrc.alias ] && source ~/.zshrc.alias
+[ -f ~/.zshrc.path ] && source ~/.zshrc.path
 
 #function ssh_screen(){
 # eval server=?${$#}
@@ -185,5 +187,3 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 #if [ x$TERM = xscreen ]; then
 # alias ssh=ssh_screen
 #fi
-
-# path and environment variable is described in the .zshenv
