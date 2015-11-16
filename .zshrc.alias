@@ -1,6 +1,6 @@
-alias v="/Users/dela/.vim/vim/src/vim"
-alias vi="/Users/dela/.vim/vim/src/vim"
-alias vr="/Users/dela/.vim/vim/src/vim -R"
+alias v="~/.vim/vim/src/vim"
+alias vi="~/.vim/vim/src/vim"
+alias vr="~/.vim/vim/src/vim -R"
 alias ll="ls -la"
 alias gs='git status'
 alias gl='git log'
