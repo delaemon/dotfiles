@@ -18,15 +18,15 @@ autoload colors
 colors
 setopt prompt_subst
 
-PROMPT="%{${fg[blue]}%}$ %C%{${reset_color}%}%{${reset_color}%} "
+PROMPT="%{${fg[blue]}%}[%n@%m %C] %{${reset_color}%}"
 PROMPT2="%{${fg[blue]}%}%_%%%{${reset_color}%} "
 SPROMPT="%{${fg[blue]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
 
 autoload -Uz vcs_info
 setopt prompt_subst
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
-zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+zstyle ':vcs_info:git:*' stagedstr "%F{green}!"
+zstyle ':vcs_info:git:*' unstagedstr "%F{magenta}+"
 zstyle ':vcs_info:*' formats "%F{blue}%c%u[%b]%f"
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () { vcs_info }
@@ -180,10 +180,13 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 [ -f ~/.zshrc.alias ] && source ~/.zshrc.alias
 [ -f ~/.zshrc.path ] && source ~/.zshrc.path
 
-#function ssh_screen(){
-# eval server=?${$#}
-# screen -t $server ssh "$@"
-#}
-#if [ x$TERM = xscreen ]; then
-# alias ssh=ssh_screen
-#fi
+#iTerm Tab
+tab-color() {
+    echo -ne "\033]6;1;bg;red;brightness;$1\a"
+    echo -ne "\033]6;1;bg;green;brightness;$2\a"
+    echo -ne "\033]6;1;bg;blue;brightness;$3\a"
+}
+tab-reset() {
+    echo -ne "\033]6;1;bg;*;default\a"
+}
+echo -ne "\033]0;`uname`@`hostname`\007"
