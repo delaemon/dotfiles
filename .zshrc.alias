@@ -38,7 +38,7 @@ alias tmkk='tmux kill-server'
 
 alias activate_node='source /Users/dela/Documents/develop/node/new/bin/activate'
 
-alias tt='echo -ne "\033]0;`hostname;uname`\007"'
+alias tt='echo -ne "\033]0;`uname`@`hostname`\007"'
 
 #Echo with color
 alias black='echo -e "\e[30m"'
