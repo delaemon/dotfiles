@@ -59,6 +59,7 @@ Plug 'kana/vim-smartinput'
 " show last git commit
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'vim-scripts/vim-auto-save'
 
 " --------
 "  Search
@@ -82,6 +83,7 @@ Plug 'gtags.vim'
 Plug 'tpope/vim-endwise'
 Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
+Plug 'leafgarland/typescript-vim'
 
 " --------
 "  Manual
@@ -113,6 +115,11 @@ map <silent> sP :call YanktmpPaste_P()<CR>
 " vim-expand-region
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
+"vim-auto-save
+let g:auto_save = 1
+autocmd! bufwritepost .vimrc source %
+" suck. the work to be left to task runner.
+"autocmd! bufwritepost *.ts make %
 
 " --------
 "  Search
@@ -283,6 +290,13 @@ function! JavaRun()
     execute '!clear; javac ' . filename . '.java && java ' . filename
 endfunction
 
+" TypeScript Run
+function! TypeScriptRun()
+    :w
+    let filename = expand('%')[:-4]
+    execute '!clear; tsc ' . filename . '.ts && node ' . filename . '.js && rm ' . filename . '.js'
+endfunction
+
 " Date
 function! Date()
     let d = system('date')
@@ -357,4 +371,5 @@ nnoremap <silent>  ;dti :call DateInsert()<CR>
 nnoremap <silent>  ;gl  :call GetLine()<CR>
 nnoremap <silent>  ;ff  :call FileType()<CR>
 nnoremap <silent>  ;he  :call HighLightErr()<CR>
+nnoremap <silent>  ;t   :call TypeScriptRun()<CR>
 "}}}KeyMap
