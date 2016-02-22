@@ -59,7 +59,8 @@ Plug 'kana/vim-smartinput'
 " show last git commit
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-Plug 'vim-scripts/vim-auto-save'
+"Plug 'vim-scripts/vim-auto-save'
+Plug 'scrooloose/syntastic'
 
 " --------
 "  Search
@@ -116,10 +117,13 @@ map <silent> sP :call YanktmpPaste_P()<CR>
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 "vim-auto-save
-let g:auto_save = 1
-autocmd! bufwritepost .vimrc source %
+"let g:auto_save = 1
+"autocmd! bufwritepost .vimrc source %
 " suck. the work to be left to task runner.
 "autocmd! bufwritepost *.ts make %
+let g:syntastic_mode_map = { 'mode': 'passive',
+    \ 'active_filetypes': ['go'] }
+let g:syntastic_go_checkers = ['go', 'golint']
 
 " --------
 "  Search
@@ -183,7 +187,8 @@ nnoremap <C-p> :cp<CR>
 "  Language
 " ----------
 " go
-set rtp+=$GOROOT/misc/vim
+"Autocompletion is enabled by default via <C-x><C-o>
+"set rtp+=$GOPATH/src/github.com/nsf/gocode/vim
 let g:go_bin_path = expand("~/.go/bin")
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -191,6 +196,7 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
+
 set completeopt=menu,preview
 if &filetype == "go"
     nnoremap <leader>i <Plug>(go-info)
