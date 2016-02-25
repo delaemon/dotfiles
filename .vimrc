@@ -200,7 +200,7 @@ let g:go_fmt_command = "goimports"
 set completeopt=menu,preview
 if &filetype == "go"
     nnoremap <leader>i <Plug>(go-info)
-    nnoremap <leader>gd <Plug>(go-doc)
+    nnoremap <leader>gdo <Plug>(go-doc)
     nnoremap <leader>gv <Plug>(go-doc-vertical)
     nnoremap <leader>gb <Plug>(go-doc-browser)
     nnoremap <leader>r <Plug>(go-run)
