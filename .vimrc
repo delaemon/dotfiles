@@ -85,6 +85,7 @@ Plug 'tpope/vim-endwise'
 Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
 Plug 'leafgarland/typescript-vim'
+Plug 'Valloric/YouCompleteMe'
 
 " --------
 "  Manual
