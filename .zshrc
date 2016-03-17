@@ -99,6 +99,7 @@ fpath=(${HOME}/.zsh/functions/Completion ${fpath})
 
 
 ## zsh editor
+export EDITOR=vim
 #
     autoload zed
 
