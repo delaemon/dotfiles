@@ -28,6 +28,7 @@ alias cdgo='/Users/dela/Documents/develop/golang/src/github.com/delaemon'
 alias start_nodeenv='cd /Users/dela/Documents/develop/node/; . env/bin/activate'
 alias cdc='/Users/dela/Documents/develop/Study/c++/'
 alias tailf='tail -f'
+alias history='history -i'
 
 #Tmux
 alias tmn='tmux new -s'
