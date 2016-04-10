@@ -178,8 +178,16 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 ## load user .zshrc configuration file
 # path and environment variable is described in the .zshrc.path
-[ -f ~/.zshrc.alias ] && source ~/.zshrc.alias
+[ -f ~/.zshrc.alias.common ] && source ~/.zshrc.alias.common
 [ -f ~/.zshrc.path ] && source ~/.zshrc.path
+case ${OSTYPE} in
+    darwin*)
+        [ -f ~/.zshrc.alias.darwin ] && source ~/.zshrc.alias.darwin
+        ;;
+    linux*)
+        [ -f ~/.zshrc.alias.linux ] && source ~/.zshrc.alias.linux
+        ;;
+esac
 
 #iTerm Tab
 tab-color() {

@@ -23,10 +23,6 @@ alias gdsub='git diff --submodule'
 alias gdi='git diff --ignore-space-at-eol'
 alias gdib='git diff -b'
 alias gdw='git diff --word-diff=color'
-alias cdd='/Users/dela/Documents/develop/'
-alias cdgo='/Users/dela/Documents/develop/golang/src/github.com/delaemon'
-alias start_nodeenv='cd /Users/dela/Documents/develop/node/; . env/bin/activate'
-alias cdc='/Users/dela/Documents/develop/Study/c++/'
 alias tailf='tail -f'
 alias history='history -i'
 
@@ -38,8 +34,7 @@ alias tmlc='tmux lsc'
 alias tmk='tmux kill-session'
 alias tmkk='tmux kill-server'
 
-alias activate_node='source /Users/dela/Documents/develop/node/new/bin/activate'
-
+#Tab title update
 alias tt='echo -ne "\033]0;`uname`@`hostname`\007"'
 
 #Echo with color

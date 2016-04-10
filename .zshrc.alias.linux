@@ -1,0 +1,2 @@
+alias cdd=${HOME}'/develop/'
+alias cdgo=${HOME}'/develop/golang/src/github.com/delaemon'
