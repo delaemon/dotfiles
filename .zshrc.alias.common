@@ -1,6 +1,9 @@
-alias v="~/.vim/vim/src/vim"
-alias vi="~/.vim/vim/src/vim"
-alias vr="~/.vim/vim/src/vim -R"
+alias v="/usr/local/bin/vim"
+alias vi="/usr/local/bin/vim"
+alias vr="/usr/local/bin/vim -R"
+alias f='find . -name '
+alias g='grep -rin '
+alias g='(){ grep -rin $1 * }'
 alias ll="ls -la"
 alias gs='git status'
 alias gl='git log'
