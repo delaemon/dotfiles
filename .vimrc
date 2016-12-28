@@ -282,6 +282,12 @@ function! CppRun()
     :!clear; g++ % -o %.compile && ./%.compile && rm %.compile;
 endfunction
 
+" Ruby Run
+function! RubyRun()
+    :w
+    :!clear; ruby %
+endfunction
+
 " Go Run
 function! GoRun()
     :w
@@ -369,6 +375,7 @@ nnoremap <silent>  ;rr  :g/^/m 0<CR><Esc>
 " method call
 nnoremap <silent>  ;s   :call ToggleSyntax()<CR>
 nnoremap <silent>  ;=   :call AlignAssignments()<CR>
+nnoremap <silent>  ;r   :call RubyRun()<CR>
 nnoremap <silent>  ;c   :call CppRun()<CR>
 nnoremap <silent>  ;j   :call JavaRun()<CR>
 nnoremap <silent>  ;g   :call GoRun()<CR>
