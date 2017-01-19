@@ -17,6 +17,7 @@ set noerrorbells
 set spell
 set spelllang=en,cjk
 set pastetoggle=<C-a>
+set binary noeol "\ No newline at end of file
 
 highlight SpecialKey ctermfg=237
 set t_Co=256
